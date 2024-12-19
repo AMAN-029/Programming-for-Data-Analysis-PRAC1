@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/style.css">
+    <title>Exploratory Data Analysis (EDA)</title>
+</head>
+<body>
+    <header>
+        <h1>Cardiff School of Technologies</h1>
+        <p>Programming for Data Analysis (<span style="color: #FFD700;">CMP7005</span>) - 
+           <span style="color: #FFD700;">Aman Bishnoi</span> (<span style="color: #FFD700;">st20315616</span>)
+        </p>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="data_overview.html">Data Overview</a></li>
+            <li><a href="eda.html">EDA</a></li>
+            <li><a href="modeling.html">Modeling</a></li>
+        </ul>
+    </nav>
+    <main>
+        <!-- Missing Values Filling -->
+        <section style="text-align: left; margin: 20px 0;">
+            <h2 style="text-align: left; border-bottom: 2px solid #FFD700; padding-bottom: 5px;">Fill Missing Values with Mean</h2>
+            <p>
+                Missing values in the dataset were filled using the column mean to ensure continuity in analysis. 
+                This approach helps maintain the overall distribution of the data while addressing missing entries in a simple manner.
+            </p>
+        </section>
+
+        <!-- Univariate Analysis -->
+        <section style="text-align: left; margin: 20px 0;">
+            <h2 style="color: #FFD700;">Univariate Analysis</h2>
+            <div style="text-align: center;">
+                <!-- Displaying Univariate Analysis Images -->
+                <img src="../results/uni1.png" alt="Univariate Analysis 1" style="width: 70%; margin: 20px auto; display: block;">
+                <img src="../results/uni2.png" alt="Univariate Analysis 2" style="width: 70%; margin: 20px auto; display: block;">
+                <img src="../results/uni3.png" alt="Univariate Analysis 3" style="width: 70%; margin: 20px auto; display: block;">
+                <img src="../results/uni4.png" alt="Univariate Analysis 4" style="width: 70%; margin: 20px auto; display: block;">
+                <img src="../results/uni5.png" alt="Univariate Analysis 5" style="width: 70%; margin: 20px auto; display: block;">
+                <img src="../results/uni6.png" alt="Univariate Analysis 6" style="width: 70%; margin: 20px auto; display: block;">
+                <img src="../results/uni7.png" alt="Univariate Analysis 7" style="width: 70%; margin: 20px auto; display: block;">
+                <img src="../results/uni8.png" alt="Univariate Analysis 8" style="width: 70%; margin: 20px auto; display: block;">
+                <img src="../results/uni9.png" alt="Univariate Analysis 9" style="width: 70%; margin: 20px auto; display: block;">
+                <img src="../results/uni10.png" alt="Univariate Analysis 10" style="width: 70%; margin: 20px auto; display: block;">
+                <img src="../results/uni11.png" alt="Univariate Analysis 11" style="width: 70%; margin: 20px auto; display: block;">
+                <img src="../results/uni12.png" alt="Univariate Analysis 12" style="width: 70%; margin: 20px auto; display: block;">
+                <img src="../results/uni13.png" alt="Univariate Analysis 13" style="width: 70%; margin: 20px auto; display: block;">
+                <img src="../results/uni14.png" alt="Univariate Analysis 14" style="width: 70%; margin: 20px auto; display: block;">
+                <img src="../results/uni15.png" alt="Univariate Analysis 15" style="width: 70%; margin: 20px auto; display: block;">
+                <img src="../results/uni16.png" alt="Univariate Analysis 16" style="width: 70%; margin: 20px auto; display: block;">
+            </div>
+        </section>
+
+        <!-- Bivariate Analysis -->
+        <section style="text-align: left; margin: 20px 0;">
+            <h2 style="color: #FFD700;">Bivariate Analysis</h2>
+            <p>
+                <strong>This scatter plot visualizes the relationship between PM2.5 (air pollutant) and TEMP (temperature):</strong>
+            </p>
+            <p>
+                <strong>Observations:</strong><br>
+                - PM2.5 levels are higher at lower temperatures, particularly below 0°C, forming a dense cluster.<br>
+                - As temperature increases, PM2.5 levels tend to decrease, showing a negative correlation between these variables.<br>
+                - Outliers are observed with extremely high PM2.5 values (>600), which are more frequent at lower temperatures.
+            </p>
+            <p>
+                <strong>Insights:</strong><br>
+                The inverse relationship suggests that colder temperatures may be associated with higher pollution levels, 
+                likely due to increased emissions (e.g., heating) and weather conditions that trap pollutants. This analysis highlights the importance of including temperature as a feature in predictive models for air pollution.
+            </p>
+            <div style="text-align: center;">
+                <img src="../results/biv1.png" alt="Bivariate Analysis" style="width: 70%; margin: 20px auto; display: block;">
+            </div>
+        </section>
+
+        <!-- Line Plot -->
+        <section style="text-align: left; margin: 20px 0;">
+            <h2 style="color: #FFD700;">Line Plot of PM2.5 Over Time</h2>
+            <div style="text-align: center;">
+                <img src="../results/line1.png" alt="Line Plot of PM2.5 Over Time" style="width: 70%; margin: 20px auto; display: block;">
+            </div>
+        </section>
+
+        <!-- Correlation Heatmap -->
+        <section style="text-align: left; margin: 20px 0;">
+            <h2 style="color: #FFD700;">Correlation Heatmap</h2>
+            <p>
+                The heatmap visualizes the correlations between numeric features in the dataset:
+            </p>
+            <p>
+                <strong>High Correlations:</strong><br>
+                - PM2.5 and PM10: Strong positive correlation (0.88), indicating they often increase together, likely due to shared pollutant sources.<br>
+                - PM2.5 and CO: Strong positive correlation (0.77), suggesting combustion sources contribute to both.<br>
+                - NO2 shows strong correlations with PM2.5 (0.66), PM10 (0.65), and CO (0.69).
+            </p>
+            <p>
+                <strong>Negative Correlations:</strong><br>
+                - TEMP has a negative correlation with PM2.5 (-0.13), PM10 (-0.10), and CO (-0.31), implying that higher temperatures might reduce pollutant levels.<br>
+                - PRES and DEWP also show moderate negative correlations with pollutants, which might reflect meteorological influences.
+            </p>
+            <p>
+                <strong>Insights:</strong><br>
+                - Meteorological variables (e.g., TEMP, PRES, DEWP) have distinct relationships with air pollutants, showing the impact of weather on pollution levels.<br>
+                - High correlations among air pollutants suggest they can serve as proxies for one another in modeling.
+            </p>
+            <p>
+                <strong>Importance:</strong><br>
+                This heatmap provides valuable insights into feature interrelationships, helping to select meaningful predictors for modeling while identifying potential redundancies.
+            </p>
+            <div style="text-align: center;">
+                <img src="../results/cor1.png" alt="Correlation Heatmap" style="width: 70%; margin: 20px auto; display: block;">
+            </div>
+        </section>
+
+        <!-- Multivariate Analysis -->
+        <section style="text-align: left; margin: 20px 0;">
+            <h2 style="color: #FFD700;">Multivariate Analysis</h2>
+            <div style="text-align: center;">
+                <img src="../results/multi1.png" alt="Multivariate Analysis" style="width: 70%; margin: 20px auto; display: block;">
+            </div>
+        </section>
+
+        <!-- Boxplot to Analyze PM2.5 by Wind Direction -->
+        <section style="text-align: left; margin: 20px 0;">
+            <h2 style="color: #FFD700;">Boxplot to Analyze PM2.5 by Wind Direction (wd)</h2>
+            <div style="text-align: center;">
+                <img src="../results/box1.png" alt="Boxplot 1" style="width: 70%; margin: 20px auto; display: block;">
+                <img src="../results/box2.png" alt="Boxplot 2" style="width: 70%; margin: 20px auto; display: block;">
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 Cardiff School of Technologies - Programming for Data Analysis</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/style.css">
+    <title>Modeling and Prediction</title>
+</head>
+<body>
+    <header>
+        <h1>Cardiff School of Technologies</h1>
+        <p>Programming for Data Analysis (<span style="color: #FFD700;">CMP7005</span>) - 
+           <span style="color: #FFD700;">Aman Bishnoi</span> (<span style="color: #FFD700;">st20315616</span>)
+        </p>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="data_overview.html">Data Overview</a></li>
+            <li><a href="eda.html">EDA</a></li>
+            <li><a href="modeling.html">Modeling</a></li>
+        </ul>
+    </nav>
+    <main>
+        <!-- Machine Learning Model -->
+        <section style="text-align: left; margin: 20px 0;">
+            <h2 style="text-align: left; border-bottom: 2px solid #FFD700; padding-bottom: 5px;">Machine Learning Model</h2>
+            <p>
+                This script focuses on building and evaluating a machine learning model using XGBoost for classifying the "station" column in a dataset.
+            </p>
+            <p>
+                First, the dataset is loaded from the specified file path, and irrelevant columns such as <strong>No</strong>, <strong>year</strong>, <strong>month</strong>, and <strong>day</strong> are removed as they do not contribute meaningfully to the predictive task. 
+                The code then applies feature engineering by creating new variables to capture meaningful relationships within the data. 
+                For example, <strong>TEMP_DEWP</strong> measures the difference between temperature and dew point, while <strong>PM_Ratio</strong> calculates the ratio of PM2.5 to PM10, providing insights into pollutant composition. 
+                Another feature, <strong>Wind_Effect</strong>, combines wind speed and rainfall to reflect weather impact.
+            </p>
+            <p>
+                To prepare the data for training, the features and target variables are separated. 
+                The target column, <strong>station</strong>, is encoded using <strong>LabelEncoder</strong> to convert the categorical station names into numeric labels. 
+                Similarly, the <strong>wd</strong> (wind direction) feature is one-hot encoded to ensure it can be used effectively in the model. 
+                The dataset is split into training and testing subsets, with 80% allocated to training. 
+                To standardize the feature scales and improve model performance, <strong>StandardScaler</strong> is applied.
+            </p>
+            <p>
+                An <strong>XGBoost</strong> classifier is used for the modeling task. 
+                This classifier is tuned with parameters such as the number of trees (<strong>n_estimators</strong>), tree depth (<strong>max_depth</strong>), and learning rate to optimize performance. 
+                After training, the model is evaluated using predictions on the test data. 
+                Metrics such as accuracy, precision, recall, and F1-score are calculated and displayed in a classification report. 
+                A confusion matrix is also visualized to understand the performance of the model across different classes.
+            </p>
+            <p>
+                Lastly, the feature importance scores are extracted from the model to determine which variables contributed most to the predictions. 
+                These scores are visualized in a bar plot, helping to identify the most influential features in the dataset.
+            </p>
+            <p>
+                This comprehensive approach ensures that the model is not only trained effectively but also evaluated thoroughly, providing insights into both its performance and the key drivers of predictions.
+            </p>
+        </section>
+
+        <!-- Confusion Matrix -->
+        <section style="text-align: left; margin: 20px 0;">
+            <h2 style="color: #FFD700;">Confusion Matrix</h2>
+            <p>
+                The confusion matrix illustrates the model's performance across different station classes. 
+                Correct predictions appear along the diagonal, with high values for classes like Dingling (4780) and Huairou (4886), indicating strong performance in these categories. 
+                However, higher misclassifications are observed for classes like Nongzhanguan and Wanshouxigong, which are often confused with similar stations. 
+                This suggests overlapping patterns or insufficiently distinct features, highlighting the need for improved feature engineering or advanced modeling techniques.
+            </p>
+            <div style="text-align: center;">
+                <img src="../results/confusion_matrix.png" alt="Confusion Matrix" style="width: 70%; margin: 20px auto; display: block;">
+            </div>
+        </section>
+
+        <!-- Features Used -->
+        <section style="text-align: left; margin: 20px 0;">
+            <h2 style="color: #FFD700;">Features Used</h2>
+            <p>
+                The feature importance plot identifies key predictors, with wind-related features (<strong>wd_WNW</strong>, <strong>wd_NNW</strong>, <strong>wd_N</strong>), 
+                meteorological variables (<strong>TEMP</strong>, <strong>DEWP</strong>, <strong>PRES</strong>), and air pollutants (<strong>NO2</strong>, <strong>CO</strong>, <strong>PM_Ratio</strong>) playing significant roles. 
+                The strong influence of wind direction and weather conditions reflects their critical impact on pollution distribution. 
+                These insights emphasize the value of refining weather and pollutant-related features to enhance the model's accuracy and address misclassification challenges for overlapping station classes.
+            </p>
+            <div style="text-align: center;">
+                <img src="../results/features.png" alt="Feature Importance" style="width: 70%; margin: 20px auto; display: block;">
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 Cardiff School of Technologies - Programming for Data Analysis</p>
+    </footer>
+</body>
+</html>

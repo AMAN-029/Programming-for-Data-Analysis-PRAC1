@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/style.css">
+    <title>Data Analysis Website</title>
+</head>
+<body>
+    <header>
+        <h1>Cardiff School of Technologies</h1>
+        <p>Programming for Data Analysis (<span style="color: #FFD700;">CMP7005</span>) - <span style="color: #FFD700;">Aman Bishnoi</span> (<span style="color: #FFD700;">st20315616</span>)</p>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="data_overview.html">Data Overview</a></li>
+            <li><a href="eda.html">EDA</a></li>
+            <li><a href="modeling.html">Modeling</a></li>
+        </ul>
+    </nav>
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+    <footer>
+        <p>&copy; 2024 Cardiff School of Technologies - Programming for Data Analysis</p>
+    </footer>
+</body>
+</html>
